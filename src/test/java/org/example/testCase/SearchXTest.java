@@ -10,7 +10,10 @@ import org.theRuffian.common.base;
 import org.theRuffian.common.browserOperation;
 import org.theRuffian.pages.homePage;
 
+import java.io.IOException;
 import java.time.Duration;
+
+import static org.theRuffian.common.documentOperation.readCSV;
 
 public class SearchXTest {
     private final SoftAssert softAssert = new SoftAssert();
@@ -18,13 +21,18 @@ public class SearchXTest {
     browserOperation dri;
 
     @DataProvider(name = "data01")
-    public Object[][] getData(){
-        return new Object[][]{{"测试", "测试_百度搜索"},{"java","java_百度搜索"},{"linux","linux_百度搜索"},{"Go","Go_百度搜索"}};
+    public static Object[][] getData(){
+//        return new Object[][]{{"测试", "测试_百度搜索"},{"java","java_百度搜索"},{"linux","linux_百度搜索"},{"Go","Go_百度搜索"}};
+        try {
+            return readCSV("D:\\data\\wwwroot\\WebAutomation\\src\\main\\java\\org\\theRuffian\\data\\test.csv");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @BeforeMethod(alwaysRun = true)
     public void openBrowser(){
-        driver = base.openBrowser("chrome");
+        driver = base.openBrowser("fireFox");
         dri = new browserOperation(driver);
         dri.get(homePage.url);
 
