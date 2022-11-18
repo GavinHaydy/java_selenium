@@ -2,20 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="classes" thread-count="7">
     <test verbose="2" preserve-order="true" name="order">
-<!--        <packages>-->
-<!--            <package name="org.example.testCase.*">-->
-<!--                <exclude name="searchTest"/>-->
-<!--                <exclude name="searchX"></exclude>-->
-<!--            </package>-->
-<!--        </packages>-->
-        <classes>
-            <class name="org.example.testCase.csdnTest">
-                <methods>
-                    <include name="openBrowser"/>
-                    <include name="userName"/>
-                    <include name="quitBrowser"/>
-                </methods>
-            </class>
-        </classes>
+        <packages>
+            <package name="org.example.testCase.*">
+                <exclude name="searchTest"/>
+            </package>
+        </packages>
+<!--        <classes>-->
+<!--            <class name="org.example.testCase.SearchTest">-->
+<!--                <methods>-->
+<!--                    <include name="openBrowser"/>-->
+<!--                    <include name="search"/>-->
+<!--                    <include name="quitBrowser"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
     </test>
 </suite>
