@@ -27,6 +27,18 @@
       <version>4.5.3</version>
     </dependency>
 
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>2.20.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.9.1</version>
+    </dependency>
   </dependencies>
 
 
@@ -50,7 +62,27 @@
           <suiteXmlFiles>
             <suiteXmlFiles>testng.xml</suiteXmlFiles>
           </suiteXmlFiles>
+          <argLine>
+            -Dfile.encoding=UTF-8
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.9.1/aspectjweaver-1.9.9.1.jar"
+          </argLine>
+          <!--生成allure-result的目录-->
+          <systemProperties>
+            <!--定义输出在项目 target 目录-->
+            <property>
+              <name>allure.results.directory</name>
+              <value>target/allure-results</value>
+              <!-- 用例执行完成后使用 allure serve target/allure-results启动报告-->
+            </property>
+          </systemProperties>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.9.1</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
