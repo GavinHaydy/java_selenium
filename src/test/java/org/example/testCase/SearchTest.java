@@ -17,7 +17,7 @@ public class SearchTest {
     browserOperation dri;
     @BeforeMethod(alwaysRun = true)
     public void openBrowser(){
-        driver = base.openBrowser("firefox", "C:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sgygoxs2.default-release");
+        driver = base.openBrowser("firefox", "C:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sgygoxs2.default-release",true);
         dri = new browserOperation(driver);
         dri.get(homePage.url);
 
@@ -30,11 +30,9 @@ public class SearchTest {
         System.out.println("s1" + Thread.currentThread().getId());
         try {
             Thread.sleep(2000);
-            System.out.println( "===========================" +driver.getTitle());
         }catch (Exception e){
             System.out.println(1);
         }
-        System.out.println( "===========================" +driver.getTitle());
         softAssert.assertEquals(driver.getTitle(),"selenium_百度搜索");
         softAssert.assertAll();
     }
@@ -46,7 +44,6 @@ public class SearchTest {
         System.out.println("s2" + Thread.currentThread().getId());
         try {
             Thread.sleep(2000);
-            System.out.println( "===========================" +driver.getTitle());
         }catch (Exception e){
             System.out.println(1);
         }
