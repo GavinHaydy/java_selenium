@@ -24,20 +24,30 @@ public class base {
         }
         return driver;
     }
-    public static WebDriver openBrowser(String driver, String configPath) {
+    public static WebDriver openBrowser(String driver, String configPath, boolean Headless) {
         WebDriver result;
         if (driver.equalsIgnoreCase("chrome")) {
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("user-data-dir=" + configPath);
+            if (Headless){
+                options.addArguments("-headless");
+            }
             result = new ChromeDriver(options);
         } else if (driver.equalsIgnoreCase("firefox")) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments("-profile=" + configPath);
+            if (Headless){
+                firefoxOptions.addArguments("-headless");
+            }
             result = new FirefoxDriver(firefoxOptions);
         } else {
             result = openBrowser("chrome", configPath);
         }
         return result;
+    }
+
+    public static WebDriver openBrowser(String driver, String configPath){
+        return openBrowser(driver,configPath,false);
     }
 }
