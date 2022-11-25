@@ -39,6 +39,12 @@
       <artifactId>aspectjweaver</artifactId>
       <version>1.9.9.1</version>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <!-- 注意版本对应的jdk版本  对应版本查看https://projectlombok.org/changelog-->
+      <version>1.18.24</version>
+    </dependency>
   </dependencies>
 
 
