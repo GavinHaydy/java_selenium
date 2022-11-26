@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import lombok.SneakyThrows;
 
 import org.openqa.selenium.support.locators.RelativeLocator.*;
 
@@ -22,7 +23,7 @@ public class browserOperation {
             return driver.findElement(locator);
         } else {
             return new WebDriverWait(driver, Duration.ofSeconds(15))
-                    .until(ExpectedConditions.presenceOfElementLocated(locator));
+                    .until(ExpectedConditions.elementToBeClickable(locator));
         }
     }
 
@@ -68,6 +69,10 @@ public class browserOperation {
         }
     }
 
+    @SneakyThrows
+    public void sleep(long ms){
+        Thread.sleep(ms);
+    }
     public void setSize(Integer width, Integer height) {
         if (width == 1 && height == 1) {
             driver.manage().window().maximize();
