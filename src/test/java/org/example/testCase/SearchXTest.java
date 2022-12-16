@@ -13,7 +13,7 @@ import org.theRuffian.pages.homePage;
 import java.io.IOException;
 import java.time.Duration;
 
-import static org.theRuffian.common.documentOperation.readCSV;
+import static org.theRuffian.common.DocumentOperation.readCsv;
 
 public class SearchXTest {
     private final SoftAssert softAssert = new SoftAssert();
@@ -24,7 +24,7 @@ public class SearchXTest {
     public static Object[][] getData(){
 //        return new Object[][]{{"测试", "测试_百度搜索"},{"java","java_百度搜索"},{"linux","linux_百度搜索"},{"Go","Go_百度搜索"}};
         try {
-            return readCSV("D:\\data\\wwwroot\\WebAutomation\\src\\main\\java\\org\\theRuffian\\data\\test.csv");
+            return readCsv("D:\\data\\wwwroot\\WebAutomation\\src\\main\\java\\org\\theRuffian\\data\\test.csv");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
