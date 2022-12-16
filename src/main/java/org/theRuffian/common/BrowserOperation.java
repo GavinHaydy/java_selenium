@@ -12,9 +12,9 @@ import lombok.SneakyThrows;
 
 import org.openqa.selenium.support.locators.RelativeLocator.*;
 
-public class browserOperation {
+public class BrowserOperation {
     WebDriver driver;
-    public browserOperation(WebDriver driver){
+    public BrowserOperation(WebDriver driver){
         this.driver = driver;
     }
 
@@ -48,7 +48,7 @@ public class browserOperation {
     }
 
     public String getValue(By by, String name) {
-        if (name.equals("text")) {
+        if ("text".equals(name)) {
             return findElement(by).getText();
         } else {
             return findElement(by).getAttribute(name);
@@ -60,9 +60,9 @@ public class browserOperation {
     }
 
     public String getWindowValue(String val) {
-        if (val.equalsIgnoreCase("title")) {
+        if ("title".equalsIgnoreCase(val)) {
             return this.driver.getTitle();
-        } else if (val.equalsIgnoreCase("url")) {
+        } else if ("url".equalsIgnoreCase(val)) {
             return this.driver.getCurrentUrl();
         } else {
             return this.driver.getPageSource();
