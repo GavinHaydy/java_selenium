@@ -6,19 +6,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import org.theRuffian.common.OpenBrowser;
-import org.theRuffian.common.BrowserOperation;
+import org.theRuffian.common.base;
+import org.theRuffian.common.browserOperation;
 import org.theRuffian.pages.homePage;
 
 import java.io.IOException;
 import java.time.Duration;
 
-import static org.theRuffian.common.DocumentOperation.readCsv;
+import static org.theRuffian.common.documentOperation.readCsv;
 
 public class SearchXTest {
     private final SoftAssert softAssert = new SoftAssert();
     WebDriver driver;
-    BrowserOperation dri;
+    browserOperation dri;
 
     @DataProvider(name = "data01")
     public static Object[][] getData(){
@@ -32,8 +32,8 @@ public class SearchXTest {
 
     @BeforeMethod(alwaysRun = true)
     public void openBrowser(){
-        driver = OpenBrowser.openBrowser("fireFox");
-        dri = new BrowserOperation(driver);
+        driver = base.openBrowser("fireFox");
+        dri = new browserOperation(driver);
         dri.get(homePage.url);
 
     }

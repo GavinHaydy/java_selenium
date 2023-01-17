@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author TheRuffian
  */
-public class DocumentOperation {
+public class documentOperation {
     public static Object[][] readCsv(String fileNameRoot, boolean ignoreTheFirstLine) throws IOException {
         List<Object[]> records = new ArrayList<Object[]>();
         String record;

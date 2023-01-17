@@ -4,8 +4,8 @@ package org.example.testCase;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import org.theRuffian.common.OpenBrowser;
-import org.theRuffian.common.BrowserOperation;
+import org.theRuffian.common.base;
+import org.theRuffian.common.browserOperation;
 import org.theRuffian.pages.homePage;
 
 import java.time.Duration;
@@ -14,11 +14,11 @@ import java.time.Duration;
 public class SearchTest {
     private final SoftAssert softAssert = new SoftAssert();
     WebDriver driver;
-    BrowserOperation dri;
+    browserOperation dri;
     @BeforeMethod(alwaysRun = true)
     public void openBrowser(){
-        driver = OpenBrowser.openBrowser("firefox", "C:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sgygoxs2.default-release",true);
-        dri = new BrowserOperation(driver);
+        driver = base.openBrowser("firefox", "C:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sgygoxs2.default-release",true);
+        dri = new browserOperation(driver);
         dri.get(homePage.url);
 
     }

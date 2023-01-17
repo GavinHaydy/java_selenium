@@ -12,9 +12,9 @@ import lombok.SneakyThrows;
 
 import org.openqa.selenium.support.locators.RelativeLocator.*;
 
-public class BrowserOperation {
+public class browserOperation {
     WebDriver driver;
-    public BrowserOperation(WebDriver driver){
+    public browserOperation(WebDriver driver){
         this.driver = driver;
     }
 

@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
-public class MySqlOperation {
+public class mySqlOperation {
     /**
      * 创建数据库连接
      * @return
@@ -20,7 +20,7 @@ public class MySqlOperation {
         try {
             Properties pro = new Properties();
             try {
-                InputStream in = MySqlOperation.class.getClassLoader().getResourceAsStream("mysql.properties");
+                InputStream in = mySqlOperation.class.getClassLoader().getResourceAsStream("mysql.properties");
                 pro.load(in);
             }catch (IOException e){
                 System.out.println("配置文件不存在");

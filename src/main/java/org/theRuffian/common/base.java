@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class OpenBrowser {
+public class base {
     static WebDriver driver;
     private static String chrome = "chrome";
     private static String edge = "edge";

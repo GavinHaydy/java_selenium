@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONPath;
 
 
-public class GetKeyWord {
+public class getKeyWord {
     public static String getKeyWord(JSON jsonString, String keyWord){
         return beforeGetKeyWord(jsonString,keyWord).get(0).toString();
     }
