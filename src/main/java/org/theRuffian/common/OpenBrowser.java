@@ -8,36 +8,40 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class base {
+public class OpenBrowser {
     static WebDriver driver;
+    private static String chrome = "chrome";
+    private static String edge = "edge";
+    private static String firefox = "firefox";
+    private static String safari = "safari";
     public static WebDriver openBrowser(String driverName) {
-        if (driverName.equalsIgnoreCase("chrome")) {
+        if (driverName.equalsIgnoreCase(chrome)) {
             driver = new ChromeDriver();
-        } else if (driverName.equalsIgnoreCase("firefox")) {
+        } else if (driverName.equalsIgnoreCase(firefox)) {
             driver = new FirefoxDriver();
-        } else if (driverName.equalsIgnoreCase("edge")) {
+        } else if (driverName.equalsIgnoreCase(edge)) {
             driver = new EdgeDriver();
-        } else if (driverName.equalsIgnoreCase("safari")) {
+        } else if (driverName.equalsIgnoreCase(safari)) {
             driver = new SafariDriver();
         } else {
             driver = openBrowser("chrome");
         }
         return driver;
     }
-    public static WebDriver openBrowser(String driver, String configPath, boolean Headless) {
+    public static WebDriver openBrowser(String driver, String configPath, boolean headless) {
         WebDriver result;
-        if (driver.equalsIgnoreCase("chrome")) {
+        if (driver.equalsIgnoreCase(chrome)) {
 
             ChromeOptions options = new ChromeOptions();
             options.addArguments("user-data-dir=" + configPath);
-            if (Headless){
+            if (headless){
                 options.addArguments("-headless");
             }
             result = new ChromeDriver(options);
-        } else if (driver.equalsIgnoreCase("firefox")) {
+        } else if (driver.equalsIgnoreCase(firefox)) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments("-profile=" + configPath);
-            if (Headless){
+            if (headless){
                 firefoxOptions.addArguments("-headless");
             }
             result = new FirefoxDriver(firefoxOptions);

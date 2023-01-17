@@ -4,16 +4,20 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class documentOperation {
-    public static Object[][] readCSV(String FileNameRoot, boolean IgnoreTheFirstLine) throws IOException {
+/**
+ * @author TheRuffian
+ */
+public class DocumentOperation {
+    public static Object[][] readCsv(String fileNameRoot, boolean ignoreTheFirstLine) throws IOException {
         List<Object[]> records = new ArrayList<Object[]>();
         String record;
         //设定UTF-8字符集，使用带缓冲区的字符输入流BufferedReader读取文件内容
-        BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream(FileNameRoot), "UTF-8"));
-        if (IgnoreTheFirstLine){
+        BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream(fileNameRoot), StandardCharsets.UTF_8));
+        if (ignoreTheFirstLine){
             //忽略读取CSV文件的标题行（第一行）
             file.readLine();
         }
@@ -33,8 +37,8 @@ public class documentOperation {
         return results;
     }
 
-    public static Object[][] readCSV(String FileNameRoot) throws IOException{
-        return readCSV(FileNameRoot,false);
+    public static Object[][] readCsv(String fileNameRoot) throws IOException{
+        return readCsv(fileNameRoot,false);
     }
 
 
