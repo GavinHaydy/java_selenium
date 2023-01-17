@@ -54,6 +54,9 @@ public class browserOperation {
             return findElement(by).getAttribute(name);
         }
     }
+    public String getValue(WebElement element){
+        return element.getText();
+    }
 
     public String getValue(By by) {
         return getValue(by, "text");

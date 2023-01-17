@@ -16,8 +16,8 @@ public class CSDNTest {
 
     @BeforeMethod(alwaysRun = true)
     public void openBrowser() {
-//        driver = base.openBrowser("chrome", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
-        driver = base.openBrowser("firefox", "C:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sgygoxs2.default-release");
+        driver = base.openBrowser("chrome", "C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data");
+//        driver = base.openBrowser("firefox", "C:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\sgygoxs2.default-release");
         dri = new browserOperation(driver);
         dri.get(csdnPage.url);
     }
@@ -29,17 +29,10 @@ public class CSDNTest {
 
     @Test
     public void userName(){
-        try {
-//            Thread.sleep(2000);
-            dri.moveToEle(csdnPage.nickPic);
-            Thread.sleep(3000);
-            String nickName = dri.getValue(csdnPage.nickName,"text");
-            softAssert.assertEquals(nickName, "the-ruffian");
-            softAssert.assertAll();
-        } catch (Exception e) {
-            System.out.println(111);
-        }
-
-
+        dri.moveToEle(csdnPage.nickPic);
+        dri.sleep(5000);
+        String nickName = dri.getValue(csdnPage.nickName);
+        softAssert.assertEquals(nickName,"the-ruffian123");
+        softAssert.assertAll();
     }
 }
